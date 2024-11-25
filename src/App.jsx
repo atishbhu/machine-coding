@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ProductList from "./components/productList";
 import "./App.css";
+// import Counter from "./components/Counter";
+// import { CounterProvider } from "./context/CartContext";
 // import Traffic from "./components/Traffic";
 // import Search from "./components/TypeHead";
 // import Counter from "./components";
@@ -32,6 +34,9 @@ function App() {
       {/* <ImageSlider /> */}
       {/* <Accordian /> */}
       {/* <Comment /> */}
+      {/* <CounterProvider>
+        <Counter />
+      </CounterProvider> */}
     </>
   );
 }

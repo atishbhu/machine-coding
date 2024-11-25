@@ -27,11 +27,18 @@ const useProduct = (isCategory, category) => {
     setProduct(newProduct);
   };
 
+  const filterProuct = (searchText) => {
+    const filteredProduct = products.filter((product) =>
+      product.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setProduct(filteredProduct)
+  };
+
   useEffect(() => {
     fetchProduct();
   }, [category]);
 
-  return { products, loading, error, deleteProduct };
+  return { products, loading, error, deleteProduct, filterProuct };
 };
 
 export { useProduct };

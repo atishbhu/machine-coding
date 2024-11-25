@@ -4,11 +4,15 @@ import "../App.css";
 import { useProduct } from "../Hooks/useProduct";
 import { useCategory } from "../Hooks/useCategory";
 
-const ProductList = ({ selecteCategory, isCategory }) => {
-  const { products, loading, error, deleteProduct } = useProduct(
+const ProductList = ({ selecteCategory, isCategory, searchText }) => {
+  const { products, loading, error, deleteProduct, filterProuct } = useProduct(
     isCategory,
     selecteCategory
   );
+
+  useEffect(() => {
+    filterProuct(searchText);
+  }, [searchText]);
 
   return (
     <div className="product-wrapper">
@@ -33,10 +37,18 @@ const ProductList = ({ selecteCategory, isCategory }) => {
 function ProductWrapper() {
   const { categoryData } = useCategory();
   const [selecteCategory, setSelecategory] = useState(null);
+  const [searchText, setSearchText] = useState("");
 
   const handleCategory = (category) => {
     setSelecategory(category);
   };
+
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  console.log('searchText', searchText)
+
   return (
     <div>
       <header>
@@ -45,10 +57,17 @@ function ProductWrapper() {
             {navItem}
           </nav>
         ))}
+        <input
+          type="text"
+          value={searchText}
+          placeholder="search Product"
+          onChange={handleSearch}
+        />
       </header>
       <ProductList
         selecteCategory={selecteCategory}
         isCategory={selecteCategory !== null}
+        searchText={searchText}
       />
     </div>
   );
