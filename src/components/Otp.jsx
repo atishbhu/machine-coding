@@ -26,7 +26,7 @@ const Otp = ({ length = 4 }) => {
   };
 
   const handleClick = (idx, e) => {
-    inputRefs.current[idx].setSelectionRange(1,1);
+    inputRefs.current[idx].setSelectionRange(1, 1);
   };
 
   const handleKeyDown = (idx, e) => {
