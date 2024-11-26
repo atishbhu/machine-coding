@@ -14,6 +14,12 @@ import "./App.css";
 // import ImageSlider from "./components/ImageSlider";
 // import Accordian from "./components/Accordian";
 // import Comment from "./components/Comment";
+import { CartProvider } from "./context/CartsContext";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Cart from "./components/Cart";
+import CustomRangeSlider from "./components/Slider.jsx";
+import Otp from "./components/Otp.jsx";
 
 function App() {
   // const { insertNode } = useTraverseTree();
@@ -24,19 +30,31 @@ function App() {
 
   return (
     <>
-      {/* <Traffic /> */}
-      <ProductList />
-      {/* <Search />
+      <Router>
+        {/* <Traffic /> */}
+
+        {/* <Switch> */}
+        {/* <CartProvider>
+          <Routes>
+            <Route path="/" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </CartProvider> */}
+        {/* </Switch> */}
+        {/* <Search />
       <Counter /> */}
-      {/* <ProgressBar /> */}
-      {/* <Folder explorer={explorer} handleInsertNode={handleInsertNode} /> */}
-      {/* <Pagination /> */}
-      {/* <ImageSlider /> */}
-      {/* <Accordian /> */}
-      {/* <Comment /> */}
-      {/* <CounterProvider>
+        {/* <ProgressBar /> */}
+        {/* <Folder explorer={explorer} handleInsertNode={handleInsertNode} /> */}
+        {/* <Pagination /> */}
+        {/* <ImageSlider /> */}
+        {/* <Accordian /> */}
+        {/* <Comment /> */}
+        {/* <CounterProvider>
         <Counter />
       </CounterProvider> */}
+      </Router>
+      {/* <CustomRangeSlider /> */}
+      <Otp />
     </>
   );
 }
